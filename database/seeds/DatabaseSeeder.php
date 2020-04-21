@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             [
                'name'=>'Admin',
                'email'=>'admin@ird.com',
-                'role'=>'user',
+                'role'=>'admin',
                'password'=> bcrypt('123456789'),
             ],
            
