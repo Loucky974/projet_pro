@@ -20,6 +20,15 @@
                 margin: 0;
             }
 
+            body { background-image: url('EARTH_PHASES_9up_1920x1080.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  max-width: 100%;
+  height: auto;
+ 
+
+}
+
             .full-height {
                 height: 100vh;
             }
@@ -45,7 +54,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 36px;
             }
 
             .links > a {
@@ -61,39 +70,43 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #logoird {
+    position: fixed ;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
         </style>
     </head>
     <body>
+
+       
+        
+        <a href="#"><img src='ird.png' alt="logo_IRD" id="logoird" /></a>
         <div class="flex-center position-ref full-height">
+          
+        
+              
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Acceuil</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Connexion</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Inscription</a>
                         @endif
                     @endauth
                 </div>
             @endif
+           
+
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                   Plateforme de téléchargement d'image satellite
             </div>
         </div>
     </body>
