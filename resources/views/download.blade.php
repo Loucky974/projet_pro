@@ -99,10 +99,9 @@
 </form>
 <style>
 #logoird {
-    display: inline-block;
-    margin-bottom: 0px;
-    margin-top: 20px;
-    margin-left: 20px;
+    position: fixed;
+    
+    margin-left: -100px;
 }
 
 input {
