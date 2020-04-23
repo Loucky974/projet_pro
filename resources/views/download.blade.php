@@ -204,19 +204,20 @@ body {
 
 .signupSection {
   background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
+ 
   background-repeat: no-repeat;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 450px;
+  width: 60%;
+  height: 70%;
   text-align: center;
   display: flex;
   color: white;
   box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
-  margin-top: 50px;
+  margin-bottom: 1%;
+  margin-top: 5%
 }
 
 .info {
