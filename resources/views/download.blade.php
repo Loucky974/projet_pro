@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="container"> 
-    <div class="row justify-content-center">--}}
+
    <!DOCTYPE html>
                 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             <head>
@@ -11,57 +10,31 @@
 
                     <title>IRD IMAGES</title>
 
-                        
-                             <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-                                {{-- <style>
-                                 html, body {
-                                     background-color: white;
-                                        color: #636b6f;
-                                        font-family: 'Nunito', sans-serif;
-                                        font-weight: 200;
-                                        height: 90vh;
-                                        margin: 0;
-                                             }
 
-                                .full-height {
-                                    height: 80vh;
+                             <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+                             <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-datetimepicker.min.css') }}">
+                             <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+                             <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+                                  {{-- <style>
+                                    body{
+                                        background-image: url(public/spacex--p-KCm6xB9I-unsplash.jpg);
+                                        background-size:cover;
+                                    }
+                                    hr{
+                                        background: white;
                                     }
 
-                                .flex-center {
-                                    align-items: center;
-                                    display: flex;
-                                    justify-content: center;
-                                      }
-
-                                .position-ref {
-                                    position: relative;
-                                     }
-
-                                .top-right {
-                                    position: absolute;
-                                    right: 10px;
-                                    top: 18px;
-                                }
-
-                                .content {
-                                    text-align: center;
-                                }
-
-                                .title {
-                                    font-size: 84px;
-                                }
-
-                                .links > a {
-                                    color: #636b6f;
-                                    padding: 0 25px;
-                                    font-size: 13px;
-                                    font-weight: 600;
-                                    letter-spacing: .1rem;
-                                    text-decoration: none;
-                                    text-transform: uppercase;
-                                }
-                              
-                                  </style> --}}
+                                    .contact-form{
+                                        background:rgba(0,0,0, .6);
+                                        color:white;
+                                        margin-top: 50px;
+                                        padding: 20px;
+                                        box-shadow: 0px 0px 0px 0px grey;
+                                        transform: translate(12%, -10%);
+                                    }
+                               </style> --}}
 
 
             </head>
@@ -84,67 +57,87 @@
 
                 </div>
 
-            </div>        
-                    
-                    
-            
-        
+            </div>
+
 
         </header>
+
+
+        <div class="container contact-form " id="tt">
+            
+            
+
+            <div class="row" id ="blockG">
+
+               <div class="col-md-6 "   id ="blockGG">
+                
+                        <h3>Bienvenue sur la plateforme de téléchargement</h3>
+                        
+                 
+               </div>
+
+               <div class="col-md-6" id="blockD">
+
+                <form action="#" method="POST"  name="signupform">
+                    <h3>Veuillez renseigner les champs </h3><br>
+                        <ul class="noBullet">
+                            <li>
+                                <label for="DateD" id="formulo">Date Début:</label>
+                                    <input type="date" id="DateD" name="DateD" required/>
+                            </li>
+                            <li>
+                                <label for="DateF" id="formulo">Date Fin</label>
+                                    <input type="date" id="DateF" name="DateF" required/>
+                            </li>
+                            <li>
+                                <label for="Mode" id="formulo">Mode:</label>
+                                    <select name="Mode" id="pet-select">
+                                        <option value="">--Choissisez votre Mode--</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                    </select>
+                            </li>
+                            <li>
+                                <label for="Canal" id="formulo">Canal: </label>
+                                    <select name="Canal" id="pet-select">
+                                            <option value="">--Choissisez votre Canal--</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                    </select>
+                            </li>
+                            <li id="center-btn">
+                                    <input type="submit" id="sub-btn" name="join" alt="submit" value="Télécharger">
+                            </li>
+                        </ul>
+                </form>
+
+
+
+               </div>
+
+            </div>
+
+        </div>
         
-        
+ {{--
+ <div class="container">
+        <div class="row">
 
-      
-
-        
-       
-  {{-- <label for="DateD">Date Début:</label> --}}
-  {{-- <input type="date" id="DateD" name="DateD">
-  
-
-  <label for="DateF">Date Fin:</label> --}}
-  {{-- <input type="date" id="DateF" name="DateF">
-  
-
-  <label for="Mode">Mode:</label>
-
-  <select name="Mode" id="pet-select">
-    <option value="">--Choissisez votre Mode--</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-</select>
-
-  <label for="Canal">Canal: </label>
-
-<select name="Canal" id="pet-select">
-    <option value="">--Choissisez votre Canal--</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-</select>
-<br><br><br>
-
-
-<p><input  id="sub" type="submit" value="Télécharger"> </p>
-
-</form> --}}
-
-<div class="container"> 
-
-
-        <div class="row justify-content-center">
-
-
+            <div class=".col-sm-12">
                         <div class="signupSection">
                             <div class="info">
-                            <h2>Bienvenue sur la plateforme de téléchargement</h2>
+                                <h2>Bienvenue sur la plateforme de téléchargement</h2>
                                 <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
-                                    
-
                             </div>
+                        </div>
+            </div>
+
+
+                                <div class=".col-sm-12">
                                     <form action="#" method="POST" class="signupForm" name="signupform">
                                         <h2>Veuillez renseigner les champs </h2><br>
                                             <ul class="noBullet">
@@ -180,16 +173,15 @@
                                                         <input type="submit" id="sub-btn" name="join" alt="submit" value="Télécharger">
                                                 </li>
                                             </ul>
-                        </form>
-                        </div>
+                                    </form>
 
-
-
-
-
+                                </div>
+        </div>
+</div>
+ --}}
                                     <style>
-                                            
-                                            @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+                                             @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -202,42 +194,34 @@ body {
   background-repeat: no-repeat;
 }
 
-.signupSection {
-  background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
- 
-  background-repeat: no-repeat;
+#tt
+{
+    background: url(https://source.unsplash.com/TV2gg2kZD1o);
+    background-repeat: no-repeat;
   position: absolute;
   top: 50%;
   left: 50%;
+ 
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 70%;
-  text-align: center;
-  display: flex;
-  color: white;
-  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1%;
-  margin-top: 5%
+ text-align: center;
+ color: white;
+ margin-bottom: 1%;
+  margin-top: 5%;
+  
 }
 
-.info {
-  width: 45%;
-  background: rgba(20, 20, 20, 0.8);
-  padding: 100px 0;
-  border-right: 5px solid rgba(30, 30, 30, 0.8);
+ #blockGG   {
+   
+    background: rgba(20, 40, 40, 0.8);
+ 
+  margin:auto;
   text-align: center;
 }
-.info h2 {
-  padding-top: 30px;
-  font-weight: 300;
-}
-.info p {
-  font-size: 18px;
-}
-.info .icon {
-  font-size: 8em;
-  padding: 20px 0;
-  color: #0ab4b4;
+
+
+#blockD   {
+    background: rgba(20, 40, 40, 0.8);
+  transition: .2s;
 }
 
 .signupForm {
@@ -283,40 +267,31 @@ body {
   background: rgba(20, 20, 20, 0.8);
   padding: 10px 80px;
 }
-
-
-
-
-
-
-
-
-
-
-
-                                            input, #pet-select {
+                                             input, #pet-select {
                                                 display: inline-block;
                                                 width: 200px;
                                                 border: 1px solid gray;
                                                 border-radius: 4px;
                                                 font-size: 16px;
                                                 margin: 10px 10px;
-                                                
+                                                width:60%;
+                                               
+
 
                                                     }
-                                                    #formulo{
+                                            #formulo{
                                                     display: inline-block;
-                                                    width: 100px;
+                                                    width: 6.25rem;
                                                     text-align: left;
                                                     color:#0ab4b4;
-                                                    }     
+                                                    }
 
                                             body { background-image: url('deux.jpg');
                                             background-repeat: no-repeat;
                                             background-size:cover;
                                             max-width: 100%;
                                             height: auto;
-                                            
+
 
                                                     }
 
@@ -324,26 +299,20 @@ body {
                                                 display:block;
                                                 margin-right: auto;
                                                 margin-left: auto;
-                                                
+
                                                     }
                                     </style>
 
-                                
-               
+
     </body>
 </html>
 
-        
-                
-               
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                   
-               
-         
-    </div>
-</div>
+
+
 @endsection
