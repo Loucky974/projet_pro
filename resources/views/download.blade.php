@@ -45,7 +45,7 @@
 
         <header>
 
-            <div class="container">
+            <div class="container justify-content-center">
 
                 <div class="row">
 
@@ -64,8 +64,8 @@
 
 
         <div class="container contact-form " id="tt">
-            
-            
+
+
 
             <div class="row" id ="blockG">
 
@@ -189,11 +189,15 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  
   background: #111;
   background-repeat: no-repeat;
+  
 }
 
+.full-height {
+                height: 80vh;
+            }
 #tt
 {
     background: url(https://source.unsplash.com/TV2gg2kZD1o);
@@ -290,7 +294,7 @@ body {
                                             background-repeat: no-repeat;
                                             background-size:cover;
                                             max-width: 100%;
-                                            height: auto;
+                                            
 
 
                                                     }
