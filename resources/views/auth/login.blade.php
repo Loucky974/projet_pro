@@ -2,13 +2,14 @@
 
 @section('content')
 <body>
-    <div class="row backgrounding">
+    <div class="row backgrounding" id="box">
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-
+                <h3 id="titre"> Bienvenue sur le site de téléchargement des images satellite de l'IRD GUYANE </h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
+                            
                             @csrf
 
                             <div class="form-group row">
@@ -65,7 +66,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </h3>
                 </div>
             </div>
         </div>
@@ -92,8 +93,27 @@ padding: 10px 80px;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        height: 100vh;
-        width: 100%;
+        
+      
     }
+
+.card-body{
+ 
+    position: relative;
+  
+    padding-top: 10%;
+    background: rgba(20, 40, 40, 0.8);
+    margin-bottom:  10%;
+}
+#box {
+align-content: center;
+margin: 0 auto;
+width: inherit;
+color:white;
+}
+#titre{
+    padding-top: 5%;
+text-align: center;
+}
 </style>
 @endsection
