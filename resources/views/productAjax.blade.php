@@ -84,9 +84,13 @@
 
 <div class="container">
     <h3 id="titre">{{__('Welcome to administrator panel')}}</h3>
-    <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> {{__('Create New User')}}</a>
     <a class="btn btn-warning" href="#" id="modeadmin"> {{__('Change To Maintenance Mode')}}</a>
-  
+    <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> {{__('Create New User')}}</a>
+   
+    <br>
+     
+     
+
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -101,7 +105,7 @@
     </table>
 </div>
    
-<div class="modal fade" id="ajaxModel" aria-hidden="true">
+   <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -145,14 +149,11 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </div>   
 </body>
     
-<div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" class="btn btn-succes" id="retour" value="" onclick="location.href='{{url('/admin')}}'">{{__('Retour')}} 
-    </button>
-   </div>
+
 
    <style>
        #retour{
