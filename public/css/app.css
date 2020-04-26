@@ -49,6 +49,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
 }
 
 article,
@@ -73,6 +74,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
+  
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -8613,8 +8615,7 @@ button.bg-dark:focus {
   padding: 1.5rem !important;
 }
 
-.pt-4
- {
+.pt-4{
   padding-top: 1.5rem !important;
 }
 
@@ -8623,7 +8624,7 @@ button.bg-dark:focus {
   padding-right: 1.5rem !important;
 }
 
-.pb-4 {
+.pb-4{
   padding-bottom: 1.5rem !important;
 }
 

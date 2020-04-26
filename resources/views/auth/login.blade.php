@@ -6,7 +6,7 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h3 id="titre"> Bienvenue sur le site de téléchargement des images satellite de l'IRD GUYANE </h3>
+                <h3 id="titre"> {{__('Welcome to the image satellite download site of the IRD GUYANE')}}  </h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             
@@ -67,9 +67,10 @@
                                 </div>
                                     
                                 <div>
-                           <br> Vous n'avez pas encore de compte ? 
+                           <br> 
+                           {{__('Do not have an account yet?')}}
                                     <a   class="inscriptionLink" href="{{ route('register') }}">
-                                        S'inscrire</a>
+                                        {{__('Register')}}</a>
                                        </div>
                             </div>
                         </form>
