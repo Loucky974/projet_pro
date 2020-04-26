@@ -63,17 +63,14 @@
         </header>
 
 
-        <div class="container contact-form " id="tt">
-
-
+    <div class="container contact-form " id="tt">
 
             <div class="row" id ="blockG">
 
                <div class="col-md-6 "   id ="blockGG">
-                
+
                         <h3>Bienvenue sur la plateforme de téléchargement</h3>
-                        
-                 
+
                </div>
 
                <div class="col-md-6" id="blockD">
@@ -123,62 +120,7 @@
 
         </div>
         
- {{--
- <div class="container">
-        <div class="row">
-
-            <div class=".col-sm-12">
-                        <div class="signupSection">
-                            <div class="info">
-                                <h2>Bienvenue sur la plateforme de téléchargement</h2>
-                                <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
-                            </div>
-                        </div>
-            </div>
-
-
-                                <div class=".col-sm-12">
-                                    <form action="#" method="POST" class="signupForm" name="signupform">
-                                        <h2>Veuillez renseigner les champs </h2><br>
-                                            <ul class="noBullet">
-                                                <li>
-                                                    <label for="DateD" id="formulo">Date Début:</label>
-                                                        <input type="date" id="DateD" name="DateD" required/>
-                                                </li>
-                                                <li>
-                                                    <label for="DateF" id="formulo">Date Fin</label>
-                                                        <input type="date" id="DateF" name="DateF" required/>
-                                                </li>
-                                                <li>
-                                                    <label for="Mode" id="formulo">Mode:</label>
-                                                        <select name="Mode" id="pet-select">
-                                                            <option value="">--Choissisez votre Mode--</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                        </select>
-                                                </li>
-                                                <li>
-                                                    <label for="Canal" id="formulo">Canal: </label>
-                                                        <select name="Canal" id="pet-select">
-                                                                <option value="">--Choissisez votre Canal--</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                        </select>
-                                                </li>
-                                                <li id="center-btn">
-                                                        <input type="submit" id="sub-btn" name="join" alt="submit" value="Télécharger">
-                                                </li>
-                                            </ul>
-                                    </form>
-
-                                </div>
-        </div>
-</div>
- --}}
+ 
                                     <style>
 
                                              @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->role=='admin' ){
+        return view('productAjax');
+        }
+        else
+        
+        if(Auth::user()->role=='user' ){
+            return view('download');
+            }
+else 
+if(Auth::user()->role=='visiteur' ){
+    return view('visiteur');
+    }
+    else
+    return view('/');
+
     }
 }

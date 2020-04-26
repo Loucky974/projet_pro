@@ -56,7 +56,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-                
+
             .full-height {
                 height: 100vh;
             }
@@ -74,7 +74,6 @@
 
 /* ird */
 #logoird {
-  
 }
 
 
@@ -96,7 +95,7 @@
                    <div class="col-md-6 "   id ="blockGG">
                     <div class="row backgrounding">
                          <img class=img-responsive src='irdT.png'style=width:50%/ />
-                        
+
                     </div>
                    </div>
 
@@ -126,7 +125,6 @@
 
 </div>
 <style>
-    
     #tt
 {
     background: url(https://source.unsplash.com/TV2gg2kZD1o);

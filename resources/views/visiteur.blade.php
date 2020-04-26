@@ -17,9 +17,10 @@
                         </div>
                     @endif
                     <div id="titre1">
-                    {{ __('please wait !') }}
+                    {{ __('Please wait !') }}
                     {{ __('the administrator will process your request.') }} 
                 </div>
+                <br>
                     <a href="#"><img src='wait.gif' alt="logo_wait" id="logowait" /></a>
                     </div>
                 </div>
@@ -36,6 +37,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    
 }
 body,html{
     min-height: 100%;
@@ -65,10 +67,8 @@ color:white;
 
 }
 #logowait
-{width:35%;
-margin-left :30%;    
-   
-
+{width:32%;
+margin-left :30%;
 }
 </style>
 @endsection

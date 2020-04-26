@@ -18,12 +18,11 @@ Route::get('/', function () {
 });
 
 Route::resource('ajaxproducts','ProductAjaxController');
+Route::get('productAjax', 'ProductAjaxController@index');
 
 
-
-
-Route::get('admin',['middleware' => 'isadmin', function () {
-    return view('admin');
+Route::get('productAjax',['middleware' => 'isadmin', function () {
+    return view('productAjax');
 }]);
 
 Route::get('visiteur',['middleware' => 'auth', function () {
@@ -39,6 +38,6 @@ Auth::routes(['verify'=>true]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/post', 'PostController@index');
