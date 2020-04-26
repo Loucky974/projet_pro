@@ -63,7 +63,14 @@
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
+                                    
                                 </div>
+                                    
+                                <div>
+                           <br> Vous n'avez pas encore de compte ? 
+                                    <a   class="inscriptionLink" href="{{ route('register') }}">
+                                        S'inscrire</a>
+                                       </div>
                             </div>
                         </form>
                     </h3>
