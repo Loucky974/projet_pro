@@ -8,7 +8,7 @@
             <div class="col-md-8">
                 <h3 id="titre"> {{__('Welcome to the image satellite download site of the IRD GUYANE')}}  </h3>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }} ">
                             
                             @csrf
 

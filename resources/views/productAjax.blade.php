@@ -84,7 +84,7 @@
 
 <div class="container">
     <h3 id="titre">{{__('Welcome to administrator panel')}}</h3>
-    <a class="btn btn-warning" href="#" id="modeadmin"> {{__('Change To Maintenance Mode')}}</a>
+    {{-- <a class="btn btn-warning" href="#" id="modeadmin"> {{__('Change To Maintenance Mode')}}</a> --}}
     <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> {{__('Create New User')}}</a>
    
     <br>

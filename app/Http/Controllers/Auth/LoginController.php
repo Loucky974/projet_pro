@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     protected function authenticated($request, $user){
         if($user->role=='admin'){
-            return redirect ('productAjax');
+            return redirect ('admin');
         }
         else 
         if ($user->role=='user')

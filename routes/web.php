@@ -17,11 +17,10 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::resource('ajaxproducts','ProductAjaxController');
-Route::get('productAjax', 'ProductAjaxController@index');
+Route::resource('ajaxproducts','ProductAjaxController',['middleware' => 'isadmin']);
 
 
-Route::get('productAjax',['middleware' => 'isadmin', function () {
+Route::get('admin',['middleware' => 'isadmin', function () {
     return view('productAjax');
 }]);
 
@@ -40,4 +39,4 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/post', 'PostController@index');
+
