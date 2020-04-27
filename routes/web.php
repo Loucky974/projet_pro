@@ -37,6 +37,7 @@ Auth::routes(['verify'=>true]);
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/post', 'PostController@index');

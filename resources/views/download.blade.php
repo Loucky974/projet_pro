@@ -33,7 +33,7 @@
               <h3 id="titre"> {{__('Welcome to the download platform')}}  </h3>
                   <div class="card-body">
                     <h5> {{__('Please fill in the fields' )}}</h5><br>
-                <form action="#" method="POST"  name="signupform">
+                <form action=/post >
                   @csrf
                    
                   <div class="form-group row">
