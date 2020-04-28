@@ -38,6 +38,11 @@ Auth::routes(['verify'=>true]);
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/post', 'PostController@index');
+
+Route::get('contact','ContactController@index')->name('contact.index');
+
+Route::get('contact/{id}','ContactController@show')->name('contact.show');
+Route::delete('contact/{id}','ContactController@destroy')->name('contact.destroy');
