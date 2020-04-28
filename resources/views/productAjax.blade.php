@@ -129,7 +129,7 @@
 <!-- Page content holder -->
 
 <div class="row backgrounding" id="box">
-<div  id="user">
+
 <div class="container"id="contenu">
     <h3 id="titre">{{__('Welcome to administrator panel')}}</h3>
     {{-- <a class="btn btn-warning" href="#" id="modeadmin"> {{__('Change To Maintenance Mode')}}</a> --}}
@@ -142,10 +142,10 @@
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>{{__('Name')}}</th>
+                <th >{{__('Name')}}</th>
                 <th>{{__('Mail')}}</th>
                 <th>{{__('Role')}}</th>
-                <th width="200px">{{__('Action')}}</th>
+                <th >{{__('Action')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -201,7 +201,7 @@
 </div>   
 
 
-</div>
+
 </div>
 </body>
     
@@ -210,11 +210,11 @@
 
 
 #contenu{
-    margin-left:17rem;
+    margin-left:16rem;
 }
 
 #sidebar.active {
-  margin-left: -17rem;
+  margin-left: -20rem;
 }
 
 #content.active {
@@ -224,7 +224,7 @@
 
 .vertical-nav {
   
-  width: 17rem;
+  width: 15rem;
   height:100%;
   position: absolute;
 
@@ -234,10 +234,6 @@
   transition: all 0.4s;
 }
 
-   
-       #retour{
-           margin: 7%;
-       }
        .backgrounding{
         background-image: url('spacex--p-KCm6xB9I-unsplash.jpg');
         background-size: cover;
