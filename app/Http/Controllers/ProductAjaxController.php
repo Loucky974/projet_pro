@@ -15,7 +15,7 @@ class ProductAjaxController extends Controller
      */
     public function index(Request $request)
     {
-   
+       
         if ($request->ajax()) {
             $data = User::latest()->get();
             return Datatables::of($data)

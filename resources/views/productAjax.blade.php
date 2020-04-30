@@ -96,7 +96,7 @@
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a href="" class="nav-link text-dark font-italic bg-light">
+      <a href="{{ route('ajaxproducts.index') }}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                 {{__('Users management' )}}
             </a>
@@ -110,13 +110,13 @@
     <li class="nav-item">
       <a href="" class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages')}}
+                {{__(  'Send a Messages')}}
             </a>
     </li>
     <li class="nav-item">
-      <a href="" class="nav-link text-dark font-italic">
+      <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Maintenance')}}
+                {{__(  ' Messages archives')}}
             </a>
     </li>
   
@@ -207,7 +207,9 @@
     
 
    <style>
-
+body{
+    overflow: hidden !important;
+}
 
 #contenu{
     margin-left:16rem;
@@ -239,6 +241,7 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        width:100% !important;
      
     }
     #titre{

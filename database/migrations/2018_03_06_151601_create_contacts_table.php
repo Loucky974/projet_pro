@@ -13,18 +13,14 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('entreprise');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('adresse');
-            $table->string('code_postal');
-            $table->string('ville');
-            $table->string('telephone');
-            $table->string('email');
+            $table->integer('user_id')->unsigned();
             $table->string('subject');
             $table->text('message');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->engine = "InnoDB";
             $table->timestamps();
         });
     }

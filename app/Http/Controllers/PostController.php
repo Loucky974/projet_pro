@@ -15,7 +15,7 @@ use ZipArchive;
      */
 
         public function index(Request $request){
- 
+          
             $post= new post();
             $post->Canal=$request->Canal;
             

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Contact')
+@section('title','Contact','User')
 
 @push('css')
 
@@ -18,14 +18,9 @@
                         <div class="card-content">
                            <div class="row">
                                <div class="col-md-12">
-                                    <strong>Entreprise: {{ $contact->entreprise }}</strong><br>
-                                   <strong>Nom: {{ $contact->nom }}</strong><br>
-                                   <strong>Prenom: {{ $contact->prenom }}</strong><br>
-                                   <strong>Adresse: {{ $contact->adresse }}</strong><br>
-                                   <strong>Code_postal: {{ $contact->code_postal }}</strong><br>
-                                   <strong>Ville: {{ $contact->ville }}</strong><br>
-                                   <strong>Telephone: {{ $contact->telephone }}</strong><br>
-                                   <b>Email: {{ $contact->email }}</b> <br>
+                                   <strong>Nom: {{ $contact->user->name }}</strong><br>
+                                   <strong>Email: {{ $contact->user->email }}</strong><br>
+                    
                                    <strong>Message: </strong><hr>
 
                                    <p>{{ $contact->message }}</p><hr>
