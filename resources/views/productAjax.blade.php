@@ -96,7 +96,7 @@
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a href="{{ route('ajaxproducts.index') }}" class="nav-link text-dark font-italic bg-light">
+      <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                 {{__('Users management' )}}
             </a>
@@ -151,8 +151,12 @@
         <tbody>
         </tbody>
     </table>
+<!-- Create -->
 
-   
+
+
+
+   <!-- Table + Show/ edit -->
    <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -180,12 +184,14 @@
                     
 
                     <div class="form-group">
-                        <label for="company-content"class="col-sm-2 control-label">Role</label>
+                        <label for="company-content"class="col-sm-12 control-label">Role</label>
+                        <div class="col-sm-12">
                         <select name="role" id="role" class="form-control">
                         <option>{{__('admin')}}</option>
                         <option>{{__('user')}}</option>
                         <option>{{__('visiteur')}}</option>
                         </select>
+                        </div>
                         </div>
 
 
@@ -319,7 +325,7 @@ $(function() {
             type: "POST",
             dataType: 'json',
             success: function (data) {
-       
+                
                 $('#productForm').trigger("reset");
                 $('#ajaxModel').modal('hide');
                 table.draw();
@@ -335,7 +341,7 @@ $(function() {
       $('body').on('click', '.deleteProduct', function () {
        
           var product_id = $(this).data("id");
-          confirm("Are You sure want to delete !");
+        if ( confirm("Are You sure want to delete !")){
         
           $.ajax({
               type: "DELETE",
@@ -347,6 +353,7 @@ $(function() {
                   console.log('Error:', data);
               }
           });
+        }
       });
        
     });

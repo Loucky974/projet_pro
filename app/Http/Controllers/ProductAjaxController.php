@@ -43,11 +43,13 @@ class ProductAjaxController extends Controller
      */
     public function store(Request $request)
     {
+    
         User::updateOrCreate(['id' => $request->product_id],
          [ 'name' => $request->name,'email' => $request->email,'role' => $request->role,
          'password' => bcrypt (123456789)]
         );        
-   
+       
+        
         return response()->json(['success'=>'Product saved successfully.']);
     }
     /**
