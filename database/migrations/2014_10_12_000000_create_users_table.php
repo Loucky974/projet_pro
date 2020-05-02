@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->dropForeign(['user_id']);
+            
            
             
         });
@@ -37,8 +37,10 @@ class CreateUsersTable extends Migration
     public function down()
     {
         
-        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+       
+
+         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('users');
-        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
