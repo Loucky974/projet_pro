@@ -163,7 +163,28 @@
                    <input type="hidden" name="create_id" id="create_id">
 
                
-                   
+                    <div class="form-group">
+                        <label for="name" class="col-sm-12">{{__('Choose user')}}</label>
+                        <div class="col-sm-12" >
+                        <?php
+                            $query = "select name from users where role='user'";
+                            $connection = new mysqli('localhost', 'root', '', 'projet_pro');
+                            $res = mysqli_query($connection, $query);       
+                        ?>
+
+
+                    <form>
+                <select id="user">
+                <?php
+                while ($row = $res->fetch_assoc()) 
+                {
+                echo '<option value=" '.' "> '.$row['name'].' </option>';
+                 }
+                ?>
+  </select>
+</form>
+                            
+                              </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Subject*</label>
@@ -358,9 +379,6 @@ $(function() {
             
             alert('rr');
           
-     
-         
-            
        
 
     });
