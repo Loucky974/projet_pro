@@ -22,6 +22,9 @@ class ContactController extends Controller
   
     public function index(Request $request)
     {
+      
+        $users = User::all();
+
        
         if ($request->ajax()) {
             
@@ -56,7 +59,8 @@ class ContactController extends Controller
                     ->make(true);
         }
       
-        return view('contact.index');
+        
+      return view('contact.index', compact('users'));
     }
      
     /**
@@ -67,11 +71,30 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        
-        Contact::updateOrCreate(['id' => $request->create_id],
-        ['message'-> $request->message]
-       );         
+        // $this->validate($request,[
+        //     'user_id' => 'required',
+        //     'subject' => 'required',
+        //     'message' => 'required',
+        // ]);
+        $contact = new Contact();
+
       
+        $contact->id= $request->create_id;
+        $contact->user_id= $request->user;
+        $contact->message= $request->messageH;
+        $contact->subject= $request->subject;
+        
+        $contact->save();
+        Toastr::success('Your message successfully send.','Success',["positionClass" => "toast-top-right"]);
+   
+    
+    //         $contact->save();
+    //    Contacts::updateOrCreate(['id' => $request->create_id],
+    //      [ 'subject' =>$request->subject,'message' => $request->messageH]
+    //     );   
+               
+    
+
        return response()->json(['success'=>'Product saved successfully.']);
     }
     /**

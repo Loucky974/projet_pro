@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,33 +160,23 @@
                 <h4 class="modal-title" id="createHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="productForm" name="productFormA" class="form-horizontal">
+                <form id="productForm" name="productForm" class="form-horizontal">
                    <input type="hidden" name="create_id" id="create_id">
+                   <div class="form-group"  id="choose">
+                    <label for="name" class="col-sm-12 control-label">Choose User*</label>
+                    <div class="col-sm-12">
+                    <select class="form-control" name="user" id="user" >
+                                                @foreach($users as $user)
+                                                @if($user->role =="user")
+                                                    <option  name="user" id="user" value="{{ $user->id }}">{{ $user->name }}</option>
+                                                    @endif
+                                                @endforeach
+                                                
+                                            </select>
+                                            </div>
+                   
+               </div>
 
-               
-                    <div class="form-group">
-                        <label for="name" class="col-sm-12">{{__('Choose user')}}</label>
-                        <div class="col-sm-12" >
-                        <?php
-                            $query = "select name from users where role='user'";
-                            $connection = new mysqli('localhost', 'root', '', 'projet_pro');
-                            $res = mysqli_query($connection, $query);       
-                        ?>
-
-
-                    <form>
-                <select id="user">
-                <?php
-                while ($row = $res->fetch_assoc()) 
-                {
-                echo '<option value=" '.' "> '.$row['name'].' </option>';
-                 }
-                ?>
-  </select>
-</form>
-                            
-                              </div>
-                    </div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Subject*</label>
                         <div class="col-sm-12">
@@ -196,7 +187,7 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Message*</label>
                         <div class="col-sm-12">
-                            <textarea class="form-control" id="message" name="message"  value=""  required=""  rows="5" >
+                            <textarea class="form-control" id="messageH" name="messageH"  value=""  required=""  rows="5" >
                             </textarea>
                         </div>
                     </div>
@@ -212,11 +203,11 @@
     </div>
 </div>   
 
+ <!-- Afficher Table + Edit et delete  -->
 
+<!-- 
 
-
-
-   <!-- Afficher Table + Edit et delete  -->
+  
    <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -245,7 +236,7 @@
     </div>
     </div>
 </div>   
-
+ -->
 
 
 </div>
@@ -254,7 +245,9 @@
 
    <style>
 body{
-    overflow: hidden !important;
+    /* overflow: hidden !important;  */
+    min-height:100vh ;
+    min-width:100vh ;
 }
 
 #contenu{
@@ -289,6 +282,7 @@ body{
         background-repeat: no-repeat;
         width:100% !important;
      
+        
     }
     #titre{
         color:white;
@@ -334,16 +328,20 @@ $(function() {
           ]
       });
        
+
+       
  
 
-      $('#createNewProduct').click(function () {
+    $('#createNewProduct').click(function () {
         
         
-          $('#saveBtn').val("");
-          $('#create_id').val('');
-          $('#productForm1').trigger("reset");
-          $('#createHeading').html("Create New Product");
-          $('#createModel').modal('show');
+           $('#saveBtn').val("create-product");
+           $('#create_id').val('');
+           $('#productForm').trigger("reset");
+           $('#createHeading').html("New Message");
+           $('#createModel').modal('show');
+           
+            
          
          
         
@@ -354,7 +352,7 @@ $(function() {
         $.get("{{ route('contact.index') }}" +'/' + product_id +'/edit', function (data) {
             $('#modelHeading').html(data.subject);
             $('#ajaxModel').modal('show');
-            $('#product_id').val(product_id);
+            $('#product_id').val(data.id);
             $('#message').val(data.message);
            
            
@@ -364,43 +362,38 @@ $(function() {
         
      });
      
-     $('#saveBtn1').click(function (e) {
-        
-       
-        e.preventDefault();
-          $(this).html('Sending..');
-         
-            $('#ajaxModel').modal('hide');
-            $('#createModel').modal('show');
-         
-            $('#create_id').val('');
-            
-            $('#saveBtn').val("ee");
-            
-            alert('rr');
-          
-       
+    
+      
 
-    });
       
       $('#saveBtn').click(function (e) {
-        alert('rr');
-        $('#subject').val(data.subject);
-        alert('rr');
-            $('#message').val(data.message);
-            alert('rr');
+
+        // $.get("{{ route('contact.store') }}", function (data) {
+      
+        //     $('#create_id').val(data.id);
+        //     $('#messageH').val(data.messageH);
+        //     $('#subject').val(data.subject);
+           
+        //      $('#user :selected').val(data.user);
+           
+         
+        // })
+
+           
+     
           e.preventDefault();
           $(this).html('Sending..');
          
           $.ajax({
               
-            data: $('#productFormA').serialize(),
+             
+            data: $('#productForm').serialize(),
             url: "{{ route('contact.store') }}",
             type: "POST",
             dataType: 'json',
             success: function (data) {
        
-                $('#productForm1').trigger("reset");
+                $('#productForm').trigger("reset");
                 $('#createModel').modal('hide');
                 table.draw();
            
@@ -433,3 +426,5 @@ $(function() {
        
     });
   </script>
+
+  

@@ -16,12 +16,11 @@ class CreateContactsTable extends Migration
         
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->index();
             $table->string('subject');
             $table->text('message');
-         
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-         
+            $table->engine = "InnoDB";
             $table->timestamps();
         });
     }
@@ -33,12 +32,9 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        
-        
-
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('contacts');
-       
-        
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
      
     }
 }
