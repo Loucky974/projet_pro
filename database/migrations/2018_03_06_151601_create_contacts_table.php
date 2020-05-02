@@ -16,7 +16,7 @@ class CreateContactsTable extends Migration
         
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->index();
             $table->string('subject');
             $table->text('message');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -32,6 +32,7 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
+   
         Schema::dropIfExists('contacts');
     }
 }
