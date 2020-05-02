@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('subject');
             $table->text('message');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
          
             $table->timestamps();
         });
