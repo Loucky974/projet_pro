@@ -96,13 +96,14 @@
     <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">  {{ Auth::user()->name }}</h4>
-        <p class="font-weight-light text-muted mb-0">Admin</p>
+        <p class="font-weight-light text-muted mb-0">User</p>
       </div>
     </div>
   </div>
 
 
 
+  
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
       <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
@@ -111,25 +112,33 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="#news" class="nav-link text-dark font-italic">
+      <a href="{{ route('home') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
                 {{__(   'News')}}
             </a>
     </li>
     <li class="nav-item">
-      <a href="{{ route('contact.user') }}" class="nav-link text-dark font-italic">
+      <a href="{{ route('contact.user') }}"  class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                 {{__(  'Send a Message')}}
             </a>
     </li>
     <li class="nav-item">
-      <a href="" class="nav-link text-dark font-italic">
+      <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages archive')}}
+                {{__(  'Messages received')}}
+            </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{ route('contact.show') }}" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                {{__(  'Messages sent')}}
             </a>
     </li>
   
   </ul>
+
 
   </div>
 

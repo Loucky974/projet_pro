@@ -17,6 +17,7 @@
     
         <!-- Scripts -->
        
+       
     
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -80,6 +81,8 @@
     </nav>
         
 
+    @toastr_css
+
 
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar">
@@ -87,13 +90,12 @@
     <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">  {{ Auth::user()->name }}</h4>
-        <p class="font-weight-light text-muted mb-0">Admin</p>
+        <p class="font-weight-light text-muted mb-0">User</p>
       </div>
     </div>
   </div>
 
-
-
+  
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
       <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
@@ -108,20 +110,26 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="" class="nav-link text-dark font-italic">
+      <a href="{{ route('contact.user') }}"  class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Send a Messages')}}
+                {{__(  'Send a Message')}}
             </a>
     </li>
     <li class="nav-item">
       <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  ' Messages archives')}}
+                {{__(  'Messages received')}}
+            </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{ route('contact.show') }}" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                {{__(  'Messages sent')}}
             </a>
     </li>
   
   </ul>
-
   </div>
 <!-- End vertical navbar -->
 
@@ -131,7 +139,7 @@
 <div class="row backgrounding" id="box">
 
 <div class="container"id="contenu">
-    <h3 id="titre">{{__('Welcome to archive message area')}}</h3>
+    <h3 id="titre">{{__('Welcome to messages received area')}}</h3>
     {{-- <a class="btn btn-warning" href="#" id="modeadmin"> {{__('Change To Maintenance Mode')}}</a> --}}
     <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> {{__('Send a New Message')}}</a>
    
@@ -152,6 +160,47 @@
         <tbody>
         </tbody>
     </table>
+
+
+
+
+<!-- response  message  -->
+
+
+<!-- response  message  -->
+<div class="modal fade" id="responseModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="responseHeading"></h4>
+            </div>
+            <div class="modal-body">
+                <form id="productFormR" name="productFormR" class="form-horizontal">
+                   <input type="hidden" name="response_id"  id="response_id" >
+                   <input type="hidden" name="userR" id="userR" >
+                   <input type="hidden" name="subjectR" id="subjectR"  >
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Message*</label>
+                        <div class="col-sm-12">
+                            <textarea class="form-control" id="messageR" name="messageR"  value=""  required=""  rows="5" >
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-offset-2 col-sm-10">
+                     <button type="submit" class="btn btn-primary" id="saveBtn2" value="response">{{__('Send')}}
+                     </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
 <!-- Create message  -->
 <div class="modal fade" id="createModel" aria-hidden="true">
     <div class="modal-dialog">
@@ -163,19 +212,21 @@
                 <form id="productForm" name="productForm" class="form-horizontal">
                    <input type="hidden" name="create_id" id="create_id">
                    <div class="form-group"  id="choose">
-                    <label for="name" class="col-sm-12 control-label">Choose User*</label>
+                        <label for="name" class="col-sm-12 control-label">Choose User*</label>
                     <div class="col-sm-12">
-                    <select class="form-control" name="user" id="user" >
+                            <select class="form-control" name="user" id="user" >
                                                 @foreach($users as $user)
-                                                @if($user->role =="user")
-                                                    <option  name="user" id="user" value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @if($user->role =="user" || $user->role =="admin")
+                                                <option   value="{{ $user->id }}">{{ $user->name }}({{  $user->email}} )</option>
+                                                   
                                                     @endif
                                                 @endforeach
                                                 
-                                            </select>
-                                            </div>
+                             </select >
+                    </div>
                    
-               </div>
+                   
+                     </div>
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Subject*</label>
@@ -200,12 +251,13 @@
             </div>
         </div>
     </div>
-    </div>
+    
 </div>   
+<!--  -->
 
  <!-- Afficher Table + Edit et delete  -->
 
-<!-- 
+
 
   
    <div class="modal fade" id="ajaxModel" aria-hidden="true">
@@ -215,7 +267,7 @@
                 <h4 class="modal-title" id="modelHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="productForm" name="productForm" class="form-horizontal">
+                <form id="productForm1" name="productForm1" class="form-horizontal">
                    <input type="hidden" name="product_id" id="product_id">
 
                
@@ -226,19 +278,20 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-offset-2 col-sm-10">
+                     <div class="col-sm-offset-2 col-sm-10">
                      <button type="submit" class="btn btn-primary" id="saveBtn1" value="create">{{__('Response')}}
                      </button>
-                    </div>
+                    </div> 
                 </form>
             </div>
         </div>
     </div>
     </div>
 </div>   
- -->
+ 
 
 
+</div>
 </div>
 </body>
     
@@ -293,6 +346,8 @@ body{
     }
    </style>
 
+@toastr_js
+@toastr_render
 
 </html>
 
@@ -346,57 +401,110 @@ $(function() {
          
         
       });
+   
       $('body').on('click', '.editProduct', function () {
         var product_id = $(this).data('id');
-     
+    
         $.get("{{ route('contact.index') }}" +'/' + product_id +'/edit', function (data) {
             $('#modelHeading').html(data.subject);
             $('#ajaxModel').modal('show');
             $('#product_id').val(data.id);
             $('#message').val(data.message);
            
-           
-           
-            
+   
+          
         })
         
-     });
+           });
      
     
       
+           $('#saveBtn1').click(function (e) {
+           
+           
+
+            $('#responseHeading').html( "Response");
+           $('#saveBtn2').val("create-product");
+         $('#response_id').val('');
+       
+      
+
+
+        
+           $('#ajaxModel').modal('hide');
+           $('#responseModel').modal('show');
+           // $('#response_id').val('#produt_id');
+           // $('#user').val('#user');
+           // $('#subject').val('#subject');
+        
+       
+           e.preventDefault();
+           $(this).html('Sending..');
+         
+
+
+           });
+
+
+            $('#saveBtn2').click(function (e) {
+ 
+
+                var pi=($('input#product_id').val());
+              
+               
+               $('#userR').val(pi);
+
+              
+               $('#response_id').val();  
+
+              
+
+ $.ajax({
+     
+    
+data: $('#productFormR').serialize(),
+   url: "{{ route('contact.store2') }}",
+   type: "POST",
+   dataType: 'json',
+   
+   success: function (data) {
+      
+       $('#productFormR').trigger("reset");
+       $('#ResponseModel').modal('hide');
+      
+       table.draw();
+       
+   },
+   error: function (data) {
+       
+
+       console.log('Error:', data);
+       $('#saveBtn2').html('Save Changes');
+   }
+});
+});
+
 
       
       $('#saveBtn').click(function (e) {
-
-        // $.get("{{ route('contact.store') }}", function (data) {
-      
-        //     $('#create_id').val(data.id);
-        //     $('#messageH').val(data.messageH);
-        //     $('#subject').val(data.subject);
-           
-        //      $('#user :selected').val(data.user);
-           
-         
-        // })
-
-           
-     
+ 
           e.preventDefault();
           $(this).html('Sending..');
          
           $.ajax({
               
              
-            data: $('#productForm').serialize(),
+         data: $('#productForm').serialize(),
             url: "{{ route('contact.store') }}",
             type: "POST",
             dataType: 'json',
+            
             success: function (data) {
-       
+               
                 $('#productForm').trigger("reset");
                 $('#createModel').modal('hide');
                 table.draw();
-           
+                
             },
             error: function (data) {
                 
@@ -405,7 +513,7 @@ $(function() {
                 $('#saveBtn').html('Save Changes');
             }
         });
-      });
+    });
       
       $('body').on('click', '.deleteProduct', function () {
        
@@ -422,9 +530,9 @@ $(function() {
                   console.log('Error:', data);
               }
           });}
-      });
-       
-    });
+     
+         });
+        });
   </script>
 
   
