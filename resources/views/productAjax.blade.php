@@ -307,7 +307,7 @@ $(function() {
           $('#saveBtn').val("create-product");
           $('#product_id').val('');
           $('#productForm').trigger("reset");
-          $('#modelHeading').html("Create New Product");
+          $('#modelHeading').html("Create New");
           $('#ajaxModel').modal('show');
       });
       
