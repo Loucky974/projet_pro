@@ -314,7 +314,7 @@ $(function() {
       $('body').on('click', '.editProduct', function () {
         var product_id = $(this).data('id');
         $.get("{{ route('ajaxproducts.index') }}" +'/' + product_id +'/edit', function (data) {
-            $('#modelHeading').html("Edit Product");
+            $('#modelHeading').html("Edit");
             $('#saveBtn').val("edit-user");
             $('#ajaxModel').modal('show');
             $('#product_id').val(data.id);
