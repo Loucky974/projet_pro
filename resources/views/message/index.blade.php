@@ -109,7 +109,7 @@
       <a href="{{ route('image.index') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
                 {{__(   'News')}}
-            </a>
+    
     </li>
     <li class="nav-item">
       <a href="{{ route('message.user') }}"  class="nav-link text-dark font-italic">
