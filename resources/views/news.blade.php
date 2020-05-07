@@ -209,7 +209,7 @@ padding: 10px 80px;
     <li class="nav-item">
       <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                {{__('Users management' )}}
+                {{__('Download Plateform' )}}
             </a>
     </li>
     <li class="nav-item">
