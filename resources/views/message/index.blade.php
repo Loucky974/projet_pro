@@ -27,6 +27,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
    
+        
 <body>
 
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -105,7 +106,7 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="#news" class="nav-link text-dark font-italic">
+      <a href="{{ route('image.index') }}" class="nav-link text-dark font-italic">
                 <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
                 {{__(   'News')}}
             </a>
@@ -423,6 +424,9 @@ $(function() {
            $('#saveBtn1').click(function (e) {
            
            
+            e.preventDefault();
+           $(this).html('Sending..');
+         
 
             $('#responseHeading').html( "Response");
            $('#saveBtn2').val("create-product");
@@ -438,10 +442,10 @@ $(function() {
            // $('#user').val('#user');
            // $('#subject').val('#subject');
         
-       
-           e.preventDefault();
-           $(this).html('Sending..');
-         
+
+           
+
+           
 
 
            });

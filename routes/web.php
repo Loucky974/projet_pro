@@ -64,4 +64,11 @@ Route::post('/SendA','MessageController@sendMessage')->name('message.send');
 Route::resource('slider','SliderController');
 
 
+
+
 Route::get('/news','NewsController@index')->name('news.index');
+
+
+Route::get('image-gallery', 'ImageGalleryController@index')->name('image.index');;
+Route::post('image-gallery', 'ImageGalleryController@upload');
+Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ImageGallery;
 
 
-use App\Slider;
+
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -22,8 +23,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $images = ImageGallery::get();
      
-        return view('news',compact('sliders'));
+        return view('news',compact('images'));
     }
 }

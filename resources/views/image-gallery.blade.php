@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<title>IRD</title>
+    <title>IRD</title>
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
    
@@ -39,7 +38,10 @@
  
   
 
+
     <style type="text/css">
+
+    
     .gallery
     {
         display: inline-block;
@@ -56,10 +58,11 @@
         background: #e8e8e8 none repeat scroll 0 0;
         padding: 15px;
     }
-
     </style>
-<style>
-    #contenu{
+
+    <style>
+
+#contenu{
     margin-left:16rem;
 }
 
@@ -83,61 +86,28 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
 }
-.backgrounding{
+
+       .backgrounding{
         background-image: url('spacex--p-KCm6xB9I-unsplash.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        
-      
+        width:100% !important;
+     
     }
-
-    #box {
-align-content: center;
-margin: 0 auto;
-width: inherit;
-color:white;
-}
-
-.card-body{
- 
- position: relative;
-
- padding-top: 10%;
- background: rgba(20, 40, 40, 0.8);
- margin-bottom:  10%;
-}
-
-#titre{
-    padding-top: 5%;
-text-align: center;
-}
-
-#sub-btn{
-border: 1px solid #0ab4b4;
-background: rgba(20, 20, 20, 0.6);
-font-size: 18px;
-color: white;
-margin-top: 20px;
-padding: 10px 50px;
-cursor: pointer;
-transition: .4s;
-}
-#sub-btn:hover {
-background: rgba(20, 20, 20, 0.8);
-padding: 10px 80px;
-}
-
+    #titre{
+        color:white;
+    }
+    thead{
+        background: rgba(20, 40, 40, 0.8);
+        color: white;
+    }
 
     </style>
 </head>
 <body>
 
-
-
-
-
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#">
                <img src='ird.png' alt="logo_IRD" id="logoird" /></a>
@@ -187,91 +157,110 @@ padding: 10px 80px;
             </div>
         </div>
     </nav>
+        
+    @toastr_css
 
 
 
 
-
-    <div class="vertical-nav bg-white" id="sidebar">
-  <div class="py-4 px-3 mb-4 bg-light">
-    <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-      <div class="media-body">
-        <h4 class="m-0">  {{ Auth::user()->name }}</h4>
-        <p class="font-weight-light text-muted mb-0">User</p>
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-4 bg-light">
+      <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" 
+          class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <div class="media-body">
+          <h4 class="m-0">  {{ Auth::user()->name }}</h4>
+          <p class="font-weight-light text-muted mb-0">Admin</p>
+        </div>
       </div>
     </div>
-  </div>
-
-
-
+    <ul class="nav flex-column bg-white mb-0">
+      <li class="nav-item">
+        <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
+                  <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                  {{__('Users management' )}}
+              </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('image.index') }}"class="nav-link text-dark font-italic">
+                  <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                  {{__(   'News')}}
+              </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('message.user') }}"  class="nav-link text-dark font-italic">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                  {{__(  'Send a Message')}}
+              </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('message.index') }}" class="nav-link text-dark font-italic">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                  {{__(  'Messages received')}}
+              </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('message.show') }}" class="nav-link text-dark font-italic">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                  {{__(  'Messages sent')}}
+              </a>
+      </li>
+    </ul>
+    </div>
+  <!-- End vertical navbar -->
   
-  <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
-      <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                {{__('Users management' )}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('news.index') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-                {{__(   'News')}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('contact.user') }}"  class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Send a Message')}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages received')}}
-            </a>
-    </li>
-
-    <li class="nav-item">
-      <a href="{{ route('contact.show') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages sent')}}
-            </a>
-    </li>
-  
-  </ul>
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="row backgrounding" id="box">
-<div class="container" id="contenu">
+
+    <div class="container"id="contenu">
 
 
-    <h3 id="titre">{{__('Welcome to news area')}}</h3>
 
-  
+        <h3 id="titre">{{__('Welcome to news area')}}</h3>
+    <form action="{{ url('image-gallery') }}" class="form-image-upload" method="POST" enctype="multipart/form-data">
+
+
+        {!! csrf_field() !!}
+
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+
+        <div class="row">
+            <div class="col-md-5">
+                <strong>Title:</strong>
+                <input type="text" name="title" class="form-control" placeholder="Title">
+            </div>
+            <div class="col-md-5">
+                <strong>Image:</strong>
+                <input type="file" name="image" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <br/>
+                <button type="submit" class="btn btn-success">Upload</button>
+            </div>
+        </div>
+
+
+    </form> 
+
 
     <div class="row">
     <div class='list-group gallery'>
@@ -286,7 +275,11 @@ padding: 10px 80px;
                             <small class='text-muted'>{{ $image->title }}</small>
                         </div> <!-- text-center / end -->
                     </a>
-                   
+                    <form action="{{ url('image-gallery',$image->id) }}" method="POST">
+                    <input type="hidden" name="_method" value="delete">
+                    {!! csrf_field() !!}
+                    <button type="submit" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+                    </form>
                 </div> <!-- col-6 / end -->
                 @endforeach
             @endif
@@ -294,8 +287,8 @@ padding: 10px 80px;
 
         </div> <!-- list-group / end -->
     </div> <!-- row / end -->
-
-</div>
+</div> <!-- container / end -->
+  </div>
 
 </body>
 
