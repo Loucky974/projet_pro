@@ -106,14 +106,14 @@
   
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+      <a href="{{ route('home') }}" class="nav-link text-dark font-italic active">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                 {{__('Download Plateform' )}}
             </a>
     </li>
     <li class="nav-item">
       <a href="{{ route('news.index') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                 {{__(   'News')}}
             </a>
     </li>
@@ -142,7 +142,7 @@
 
   </div>
 
-
+<!-- Vertical navbar -->
 
   <div class="row backgrounding" id="box">
     <div class="container" id="contenu">
@@ -153,33 +153,20 @@
                     <h5> {{__('Please fill in the fields' )}}</h5><br>
                 <form action=/post >
                   @csrf
-                   
                   <div class="form-group row">
-                    
                     <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Start Date') }}</label>
-
                     <div class="col-md-6">
                         <input id="dateD" type="date"  name="DateD"  required >
-
-                        
                     </div>
                 </div>
-
-
                 <div class="form-group row">
-                    
                   <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('End Date') }}</label>
-
                   <div class="col-md-6">
                       <input id="dateF" type="date"  name="DateF"  required >
-
-                      
                   </div>
               </div>
               <div class="form-group row">
-                    
                 <label for="Mode" class="col-md-4 col-form-label text-md-right">{{ __('Mode') }}</label>
-
                 <div class="col-md-6">
                   <select name="Mode" id="pet-select">
                     <option value="" required>--Choissisez votre Mode--</option>
@@ -190,37 +177,25 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                 </select>
-                    
                 </div>
             </div>
-      
             <div class="form-group row">
-                    
               <label for="Canal" class="col-md-4 col-form-label text-md-right">{{ __(' Channel') }}</label>
-
               <div class="col-md-6">
-                
                   <select name="Canal" id="pet-select">
                     <option value="">--Choissisez votre Canal--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
             </select>
-             
-                  
               </div>
           </div>
-
           <div class="form-group row mb-0">
             <div class="col-md-8 offset-md-4">
                 <button type="submit" class="btn btn-primary" id="sub-btn">
                     {{ __('Downlaod') }}
                 </button>
-                        
-                             
-                                
             </div>
-          </div>          
-                          
+          </div>
                 </form>
 
 
@@ -230,13 +205,13 @@
             </div>
 
         </div>
-  </div>    
+  </div>
 
 
 
 
  <style>
- 
+
 #contenu{
     margin-left:16rem;
 }
@@ -251,26 +226,29 @@
 }
 
 .vertical-nav {
-  
+
   width: 15rem;
   height:100%;
   position: absolute;
 
-  
-  
+
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
 }
+.active,.nav-link:hover
+{
+background-color:rgba(26, 85, 109, 0.384) ;
+color: cornsilk;
+}
+
 .backgrounding{
         background-image: url('spacex--p-KCm6xB9I-unsplash.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        
-      
     }
 
-    #box {
+#box {
 align-content: center;
 margin: 0 auto;
 width: inherit;
@@ -278,16 +256,14 @@ color:white;
 }
 
 .card-body{
- 
  position: relative;
-
  padding-top: 10%;
  background: rgba(20, 40, 40, 0.8);
  margin-bottom:  10%;
 }
 
 #titre{
-    padding-top: 5%;
+padding-top: 5%;
 text-align: center;
 }
 

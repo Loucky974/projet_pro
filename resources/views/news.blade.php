@@ -77,11 +77,13 @@
   width: 15rem;
   height:100%;
   position: absolute;
-
-  
-  
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
+}
+.active,.nav-link:hover
+{
+background-color:rgba(26, 85, 109, 0.384) ;
+color: cornsilk;
 }
 .backgrounding{
         background-image: url('spacex--p-KCm6xB9I-unsplash.jpg');
@@ -193,56 +195,56 @@ padding: 10px 80px;
 
 
     <div class="vertical-nav bg-white" id="sidebar">
-  <div class="py-4 px-3 mb-4 bg-light">
-    <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-      <div class="media-body">
-        <h4 class="m-0">  {{ Auth::user()->name }}</h4>
-        <p class="font-weight-light text-muted mb-0">User</p>
-      </div>
-    </div>
-  </div>
-
-
-
-  
-  <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
-      <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                {{__('Download Plateform' )}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('news.index') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-                {{__(   'News')}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('contact.user') }}"  class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Send a Message')}}
-            </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages received')}}
-            </a>
-    </li>
-
-    <li class="nav-item">
-      <a href="{{ route('contact.show') }}" class="nav-link text-dark font-italic">
-                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                {{__(  'Messages sent')}}
-            </a>
-    </li>
-  
-  </ul>
-
-
-  </div>
-
+        <div class="py-4 px-3 mb-4 bg-light">
+          <div class="media d-flex align-items-center"><img src="admin.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <div class="media-body">
+              <h4 class="m-0">  {{ Auth::user()->name }}</h4>
+              <p class="font-weight-light text-muted mb-0">User</p>
+            </div>
+          </div>
+        </div>
+      
+      
+      
+        
+        <ul class="nav flex-column bg-white mb-0">
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link text-dark font-italic">
+                      <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                      {{__('Download Plateform' )}}
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('news.index') }}" class="nav-link text-dark font-italic active">
+                      <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                      {{__(   'News')}}
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('contact.user') }}"  class="nav-link text-dark font-italic">
+                      <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                      {{__(  'Send a Message')}}
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('contact.index') }}" class="nav-link text-dark font-italic">
+                      <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                      {{__(  'Messages received')}}
+                  </a>
+          </li>
+      
+          <li class="nav-item">
+            <a href="{{ route('contact.show') }}" class="nav-link text-dark font-italic">
+                      <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                      {{__(  'Messages sent')}}
+                  </a>
+          </li>
+        
+        </ul>
+      
+      
+        </div>
+      
 
 
 

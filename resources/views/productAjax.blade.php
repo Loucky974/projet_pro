@@ -100,14 +100,14 @@
   </div>
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a href="{{ route('home') }}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+      <a href="{{ route('home') }}" class="nav-link text-dark font-italic active">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                 {{__('Users management' )}}
             </a>
     </li>
     <li class="nav-item">
       <a href="{{ route('image.index') }}"class="nav-link text-dark font-italic">
-                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                 {{__(   'News')}}
             </a>
     </li>
@@ -239,15 +239,17 @@ body{
 }
 
 .vertical-nav {
-  
+
   width: 15rem;
   height:100%;
   position: absolute;
-
-  
-  
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
+}
+.active,.nav-link:hover
+{
+background-color:rgba(26, 85, 109, 0.384) ;
+color: cornsilk;
 }
 
        .backgrounding{
@@ -256,7 +258,6 @@ body{
         background-position: center center;
         background-repeat: no-repeat;
         width:100% !important;
-     
     }
     #titre{
         color:white;
